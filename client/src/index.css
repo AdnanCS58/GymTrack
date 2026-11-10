@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: 'Inter', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #17211d;
+  background: #f5f7f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7f6;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #176b52;
+  color: #ffffff;
+}
+
+/* Consistent scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5d0;
+  border-radius: 20px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3b4942;
+}
+
+/* GymTrack Design Tokens */
+
+:root {
+  --gt-primary: #176b52;
+  --gt-primary-hover: #125840;
+  --gt-primary-light: #e7f2ed;
+
+  --gt-background: #f5f7f6;
+  --gt-surface: #ffffff;
+  --gt-border: #e5eae7;
+
+  --gt-text-primary: #17211d;
+  --gt-text-secondary: #68756e;
+  --gt-text-muted: #96a19a;
+
+  --gt-success: #15976a;
+  --gt-danger: #dc5555;
+}
+
+.dark {
+  --gt-primary: #34a77d;
+  --gt-primary-hover: #43bb8e;
+  --gt-primary-light: #193a30;
+
+  --gt-background: #101713;
+  --gt-surface: #17221b;
+  --gt-border: #29372f;
+
+  --gt-text-primary: #f1f5f2;
+  --gt-text-secondary: #a1ada5;
+  --gt-text-muted: #758279;
+
+  --gt-success: #34c38f;
+  --gt-danger: #f07171;
+}
+
+/* GymTrack Reusable Components */
+
+.gt-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: var(--gt-background);
+  color: var(--gt-text-primary);
+}
+
+.gt-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.gt-card {
+  background: var(--gt-surface);
+  border: 1px solid var(--gt-border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.gt-card:hover {
+  border-color: var(--gt-primary);
+}
+
+.gt-page-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  color: var(--gt-text-primary);
+}
+
+.gt-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gt-text-primary);
+}
+
+.gt-description {
+  color: var(--gt-text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gt-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gt-text-secondary);
+}
+
+.gt-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--gt-border);
+  border-radius: 10px;
+  background: var(--gt-surface);
+  color: var(--gt-text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Input fields containing icons */
+.gt-input-icon {
+  padding-left: 42px !important;
+}
+
+/* Consistent icon positioning */
+.gt-input-wrapper {
+  position: relative;
+}
+
+.gt-input-wrapper .gt-input-icon-element {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--gt-text-muted);
+}
+
+.gt-input:focus {
+  border-color: var(--gt-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gt-primary) 12%, transparent);
+}
+
+.gt-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--gt-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.gt-button-primary:hover {
+  background: var(--gt-primary-hover);
+}
+
+@media (max-width: 640px) {
+  .gt-page {
+    padding: 20px 16px;
+  }
+
+  .gt-card {
+    padding: 18px;
+  }
+
+  .gt-page-title {
+    font-size: 24px;
+  }
+}
